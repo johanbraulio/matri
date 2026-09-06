@@ -59,7 +59,15 @@ node scripts/qa.mjs
 
 Puede indicarse su ruta mediante `PLAYWRIGHT_PACKAGE` y la URL mediante `QA_URL`. El navegador Chromium debe estar instalado para Playwright. La comprobación recorre 360, 390, 430, 768, 1024 y 1440 px; comprueba imágenes, desbordamientos, teclado, texto ampliado, movimiento reducido, funcionamiento sin JavaScript y estados de fecha. La galería se prueba con un fixture aislado que importa el módulo real; no agrega fotos ficticias al sitio. Genera capturas y un informe en `artifacts/` (excluido de Git).
 
-## Publicar en Cloudflare Pages desde GitHub
+## Publicar en GitHub Pages
+
+El flujo `.github/workflows/deploy.yml` compila y publica automáticamente los pushes a `main`. Antes del primer despliegue, abrir `https://github.com/johanbraulio/matri/settings/pages` y seleccionar **GitHub Actions** en **Build and deployment → Source**.
+
+Subir el workflow y los cambios de configuración. Seguir la ejecución en la pestaña **Actions**. Una vez completada correctamente, la invitación estará en `https://johanbraulio.github.io/matri/`.
+
+La variable `GITHUB_PAGES=true` activa la ruta `/matri/` exclusivamente para este despliegue. El desarrollo local y las compilaciones normales conservan `/`. Para exportar un HTML autónomo ejecutar primero `npm run build` sin esa variable y después `node scripts/export-html.mjs`.
+
+## Alternativa: publicar en Cloudflare Pages desde GitHub
 
 1. Crear o elegir el repositorio de GitHub y subir este proyecto con `package-lock.json`, sin `node_modules/`, `.astro/` ni `dist/`.
 2. En Cloudflare Pages, conectar ese repositorio y seleccionar la rama de producción.
