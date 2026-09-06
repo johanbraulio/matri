@@ -1,0 +1,17 @@
+---
+import { wedding } from '../data/wedding';
+import Icon from './Icon.astro';
+---
+<section id="gran-dia" class="events section-pad" aria-labelledby="events-heading">
+  <div class="text-center" data-reveal><p class="eyebrow">02 — El gran día</p><h2 id="events-heading">El comienzo de <em>nuestro siempre.</em></h2><p class="section-subtitle">{wedding.dateLabel}</p></div>
+  <div class="event-grid">
+    {wedding.events.map((event, index) => <article class="event-card" data-reveal>
+      <span class="event-number" aria-hidden="true">0{index + 1}</span>
+      <Icon name={event.icon} size={45} />
+      <h3>{event.title}</h3><p class="event-time">{event.time}<span> h</span></p>
+      <div class="event-location"><h4>{event.city}</h4><p>{event.region}</p></div>
+      {event.venue && <p>{event.venue}</p>}{event.address && <p>{event.address}</p>}
+      {event.mapsUrl ? <a class="button" href={event.mapsUrl} target="_blank" rel="noopener noreferrer"><Icon name="pin" size={18} />Cómo llegar<Icon name="arrow" size={18} /></a> : <p class="location-pending">{index === 0 ? 'Pronto compartiremos la iglesia y su ubicación.' : 'Pronto compartiremos el local y su ubicación.'}</p>}
+    </article>)}
+  </div>
+</section>

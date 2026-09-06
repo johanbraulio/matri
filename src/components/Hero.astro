@@ -1,0 +1,26 @@
+---
+import Photo from './Photo.astro';
+import { wedding } from '../data/wedding';
+import Icon from './Icon.astro';
+---
+<section class="hero" aria-labelledby="couple-names" id="inicio">
+  <Photo image={wedding.hero.image} alt={wedding.hero.alt} sizes={`max(100vw, ${100 * wedding.hero.image.width / wedding.hero.image.height}vh)`} eager class="hero-photo" />
+  <header class="hero-header">
+    <a href="#inicio" class="monogram" aria-label="Johan y Marylia, inicio">J<span>&</span>M</a>
+    <nav aria-label="Secciones de la invitación" class="flex items-center gap-6 md:gap-10">
+      <a href="#historia" class="hidden sm:inline">Nuestra historia</a>
+      <a href="#gran-dia">El gran día</a>
+      <a href="#galeria" class="hidden sm:inline">Recuerdos</a>
+    </nav>
+    <span class="header-date hidden md:block">10 / 10 / 26</span>
+  </header>
+  <div class="hero-content">
+    <p class="eyebrow hero-kicker">Con amor, para nuestra familia y amigos</p>
+    <h1 id="couple-names"><span>Johan</span><em>&</em><span>Marylia</span></h1>
+    <div class="hero-date"><span></span><p>Nos casamos</p><span></span></div>
+    <p class="wedding-date">10 <i>·</i> 10 <i>·</i> 2026</p>
+    <p class="hero-location">Santa Lucía, Lampa, Puno</p>
+  </div>
+  <a href="#bienvenida" class="scroll-link"><span>Una nueva historia comienza</span><Icon name="down" size={22} /></a>
+  <span class="hero-side-note" aria-hidden="true">Juntos, para siempre</span>
+</section>

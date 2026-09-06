@@ -1,0 +1,16 @@
+---
+import Photo from './Photo.astro';
+import { wedding } from '../data/wedding';
+---
+<section id="historia" class="story section-pad" aria-labelledby="story-heading">
+  <div class="story-image" data-reveal>
+    <Photo image={wedding.story.image} alt={wedding.story.alt} sizes="(min-width: 768px) 45vw, 90vw" />
+    <span class="image-caption">Cada historia tiene su propia forma de florecer.</span>
+  </div>
+  <div class="story-copy" data-reveal>
+    <p class="eyebrow">01 — Nuestra historia</p>
+    <h2 id="story-heading">Un camino.<br />Dos personas.<br /><em>Una vida juntos.</em></h2>
+    {wedding.memories.length > 0 ? <ol class="memory-list">{wedding.memories.map(memory => <li><span class="eyebrow">{memory.date}</span><h3>{memory.title}</h3><p>{memory.description}</p></li>)}</ol> : <p class="story-pending">Muy pronto compartiremos aquí los recuerdos que nos trajeron hasta este día.</p>}
+    <div class="story-next"><span class="eyebrow">Nuestro próximo capítulo</span><p>10 de octubre de 2026</p><span>Nos casamos.</span></div>
+  </div>
+</section>

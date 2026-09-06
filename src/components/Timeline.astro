@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+const moments = [
+  { time: '13:00 h', title: 'El sí para siempre', text: 'Matrimonio religioso · Santa Lucía', icon: 'church' },
+  { time: 'Después de la ceremonia', title: 'Un momento para recordar', text: 'Fotografías y traslado a Juliaca', icon: 'camera' },
+  { time: '17:00 h', title: 'Brindemos por el amor', text: 'Recepción · Juliaca', icon: 'glasses' },
+  { time: 'A continuación', title: 'Compartir la mesa', text: 'Cena en compañía de quienes queremos', icon: 'dinner' },
+  { time: 'Y para cerrar', title: 'A celebrar juntos', text: 'Música, baile y recuerdos por crear', icon: 'music' },
+];
+---
+<section class="itinerary section-pad" aria-labelledby="itinerary-heading">
+  <div class="text-center" data-reveal><p class="eyebrow">03 — El itinerario</p><h2 id="itinerary-heading">Un día, <em>tantos momentos.</em></h2><p class="section-subtitle">Así celebraremos nuestro nuevo comienzo.</p></div>
+  <ol class="timeline">{moments.map(moment => <li data-reveal><span class="timeline-icon"><Icon name={moment.icon} size={28} /></span><div><p class="eyebrow">{moment.time}</p><h3>{moment.title}</h3><p>{moment.text}</p></div></li>)}</ol>
+  <p class="program-note text-center">Los horarios de cena y celebración se confirmarán más adelante.</p>
+</section>

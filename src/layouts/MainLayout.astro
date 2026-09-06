@@ -1,0 +1,30 @@
+---
+import '@fontsource/cormorant-garamond/latin-400.css';
+import '@fontsource/cormorant-garamond/latin-400-italic.css';
+import '@fontsource/cormorant-garamond/latin-500.css';
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-500.css';
+import '../styles/global.css';
+import { wedding } from '../data/wedding';
+---
+<!doctype html>
+<html lang="es-PE" data-motion={wedding.motionEnabled ? 'on' : 'off'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="description" content="Johan y Marylia se casan. Acompáñanos el 10 de octubre de 2026 en Santa Lucía y Juliaca, Puno." />
+    <meta name="theme-color" content="#343c30" />
+    <meta property="og:title" content="Johan & Marylia · 10.10.2026" />
+    <meta property="og:description" content="El mejor regalo será compartir este día con ustedes." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Johan & Marylia — Nos casamos · 10.10.2026</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#bienvenida">Ir al contenido</a>
+    <slot />
+    <script>import '../scripts/animations';</script>
+  </body>
+</html>

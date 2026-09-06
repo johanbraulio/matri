@@ -1,0 +1,9 @@
+---
+import Photo from './Photo.astro';
+import { wedding } from '../data/wedding';
+---
+<footer class="closing text-center">
+  <Photo image={wedding.closing.image} alt="" sizes={`max(100vw, ${630 * wedding.closing.image.width / wedding.closing.image.height}px)`} class="closing-photo" />
+  <div class="closing-content" data-reveal><p class="eyebrow">Gracias por formar parte de nuestra historia</p><h2>Todo es más bonito<br /><em>si lo compartimos con ustedes.</em></h2><p class="closing-names">Johan <em>&</em> Marylia</p><p class="eyebrow">10 · 10 · 2026</p></div>
+  <div class="footer-bottom"><span>Con todo nuestro amor, J & M</span><a href="#inicio">Volver al inicio ↑</a></div>
+</footer>
