@@ -2,7 +2,7 @@
 import { getImage } from 'astro:assets';
 import Photo from './Photo.astro';
 import { wedding } from '../data/wedding';
-const photos = await Promise.all(wedding.photos.map(async photo => ({ ...photo, full: await getImage({ src: photo.image, format: 'webp', width: Math.min(photo.image.width, 1600) }) })));
+const photos = await Promise.all(wedding.photos.map(async photo => ({ ...photo, full: await getImage({ src: photo.image, format: 'webp', width: Math.min(photo.image.width, 1080), quality: 75 }) })));
 ---
 <section id="galeria" class="gallery section-pad" aria-labelledby="gallery-heading">
   <div class="gallery-heading" data-reveal><div><p class="eyebrow">04 — Nuestros recuerdos</p><h2 id="gallery-heading">Lo bonito de la vida<br /><em>es vivirla contigo.</em></h2></div><p>{wedding.testPhotos ? 'Fotografías de prueba. Pronto compartiremos nuestros propios recuerdos.' : photos.length ? 'Pequeños instantes de nuestra historia.' : 'Estamos eligiendo nuestros momentos favoritos. Muy pronto estarán aquí.'}</p></div>
