@@ -30,7 +30,7 @@ try {
       await picture.evaluate(img => img.decode());
     }
     assert.equal(await page.locator('a[href="null"]').count(), 0);
-    assert.equal(await page.locator('#music-toggle').count(), 0);
+    assert.equal(await page.locator('#music-toggle').count(), 1);
     await page.evaluate(() => scrollTo(0, 0));
     if ([390, 1440].includes(width)) {
       await page.screenshot({ path: new URL(`preview-${width}.png`, artifacts).pathname.replace(/^\/(?=[A-Z]:)/, ''), fullPage: true });
@@ -66,7 +66,7 @@ try {
   assert.match(await page.locator('.lightbox figcaption').textContent(), /^5 \/ 5/);
   await page.keyboard.press('Escape');
   assert.equal(await actualPhotos.first().evaluate(el => el === document.activeElement), true);
-  report.checks.push('Cinco fotos reales de prueba: carga, recorrido y vista completa sin deformación');
+  report.checks.push('Cinco fotos definitivas: carga, recorrido y vista completa sin deformación');
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto(base);
   assert.equal(await page.locator('html').getAttribute('data-motion'), 'on');

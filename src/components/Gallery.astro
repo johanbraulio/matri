@@ -2,11 +2,11 @@
 import { getImage } from 'astro:assets';
 import Photo from './Photo.astro';
 import { wedding } from '../data/wedding';
-const photos = await Promise.all(wedding.photos.map(async photo => ({ ...photo, full: await getImage({ src: photo.image, format: 'webp', width: Math.min(photo.image.width, 1800) }) })));
+const photos = await Promise.all(wedding.photos.map(async photo => ({ ...photo, full: await getImage({ src: photo.image, format: 'webp', width: Math.min(photo.image.width, 1600) }) })));
 ---
 <section id="galeria" class="gallery section-pad" aria-labelledby="gallery-heading">
   <div class="gallery-heading" data-reveal><div><p class="eyebrow">04 — Nuestros recuerdos</p><h2 id="gallery-heading">Lo bonito de la vida<br /><em>es vivirla contigo.</em></h2></div><p>{wedding.testPhotos ? 'Fotografías de prueba. Pronto compartiremos nuestros propios recuerdos.' : photos.length ? 'Pequeños instantes de nuestra historia.' : 'Estamos eligiendo nuestros momentos favoritos. Muy pronto estarán aquí.'}</p></div>
-  {photos.length ? <div class="gallery-grid">{photos.map((photo, index) => <button class="gallery-photo" data-reveal data-gallery-image={photo.full.src} data-caption={photo.caption} data-alt={photo.alt} aria-label={`Ampliar fotografía ${index + 1}: ${photo.alt}`}><Photo image={photo.image} alt={photo.alt} sizes="(min-width: 768px) 30vw, 45vw" /><span class="gallery-plus" aria-hidden="true">+</span></button>)}</div> : <div class="gallery-placeholder" aria-label="Galería pendiente de fotografías"><span class="placeholder-monogram" aria-hidden="true">J <em>&</em> M</span><span class="eyebrow">Los recuerdos más bonitos aún están por venir</span></div>}
+  {photos.length ? <div class="gallery-grid">{photos.map((photo, index) => <button class="gallery-photo" data-reveal data-gallery-image={photo.full.src} data-caption={photo.caption} data-alt={photo.alt} aria-label={`Ampliar fotografía ${index + 1}: ${photo.alt}`}><Photo maxWidth={900} image={photo.image} alt={photo.alt} position={photo.position} sizes="(min-width: 768px) 30vw, 45vw" /><span class="gallery-plus" aria-hidden="true">+</span></button>)}</div> : <div class="gallery-placeholder" aria-label="Galería pendiente de fotografías"><span class="placeholder-monogram" aria-hidden="true">J <em>&</em> M</span><span class="eyebrow">Los recuerdos más bonitos aún están por venir</span></div>}
 </section>
 <dialog class="lightbox" aria-label="Galería de fotografías ampliadas">
   <button class="lightbox-close" aria-label="Cerrar fotografía" autofocus>×</button>

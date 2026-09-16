@@ -6,9 +6,11 @@ import '@fontsource/manrope/latin-400.css';
 import '@fontsource/manrope/latin-500.css';
 import '../styles/global.css';
 import { wedding } from '../data/wedding';
+interface Props { edition?: 'classic' | 'envelope'; }
+const { edition = 'classic' } = Astro.props;
 ---
 <!doctype html>
-<html lang="es-PE" data-motion={wedding.motionEnabled ? 'on' : 'off'}>
+<html lang="es-PE" data-motion={wedding.motionEnabled ? 'on' : 'off'} data-edition={edition} data-envelope={edition === 'envelope' ? 'closed' : undefined}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

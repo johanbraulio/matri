@@ -7,10 +7,12 @@ interface Props {
   sizes: string;
   class?: string;
   eager?: boolean;
+  position?: string;
+  maxWidth?: number;
 }
-const { image, alt, sizes, class: className, eager = false } = Astro.props;
+const { image, alt, sizes, class: className, eager = false, position, maxWidth = 1600 } = Astro.props;
 // Los tamaños dependen del original, no de su extensión ni de las fotos de prueba.
-const maximum = Math.min(image.width, 1800);
+const maximum = Math.min(image.width, maxWidth);
 const widths = [...new Set([360, 640, 900, 1200, 1536, maximum].filter(width => width <= maximum))].sort((a, b) => a - b);
 ---
-<Picture src={image} alt={alt} formats={['avif', 'webp']} fallbackFormat="webp" widths={widths} width={maximum} sizes={sizes} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} class={className} />
+<Picture src={image} alt={alt} formats={['avif', 'webp']} fallbackFormat="webp" widths={widths} width={maximum} sizes={sizes} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} class={className} style={position ? { objectPosition: position } : undefined} />

@@ -30,7 +30,7 @@ Todo el contenido pendiente se configura en `src/data/wedding.ts`:
 - `memories`: agregar 3–5 objetos `{ date, title, description }` con hechos reales. Mientras esté vacío, la sección muestra un mensaje de próxima publicación.
 - `photos`: agregar 6–12 objetos `{ image, alt, caption }`. `image` debe ser una imagen importada. La galería se activa automáticamente y permite ampliar fotos, recorrerlas con flechas o deslizar en móvil, cerrar con Escape y volver al botón original.
 - `events`: completar `venue`, `address` y `mapsUrl` de cada evento. Mantener `null` hasta confirmar; no se muestran enlaces de mapas que puedan conducir al lugar equivocado.
-- `music`: opcional, `{ src: '/music/cancion.mp3', title: 'Título' }`. Colocar el archivo autorizado en `public/music/`. El control aparece solo al configurar una canción, nunca reproduce automáticamente.
+- `music`: opcional, `{ src: '/music/cancion.mp3', title: 'Título' }`. Colocar el archivo autorizado en `public/music/`. El control aparece solo al configurar una canción, intenta reproducirse automáticamente; si el navegador lo bloquea, el invitado puede usar Activar música.
 - `motionEnabled`: `true` tras la aprobación del diseño. Activa la entrada de portada y la aparición al desplazar; respeta `prefers-reduced-motion`, incluso si la preferencia cambia con la página abierta.
 
 Ejemplo para agregar fotos:

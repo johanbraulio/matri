@@ -1,6 +1,8 @@
 ---
 import { wedding } from '../data/wedding';
 import Icon from './Icon.astro';
+interface Props { autoStart?: boolean; }
+const { autoStart = true } = Astro.props;
 ---
-{wedding.music && <div class="music-control"><audio id="wedding-music" src={wedding.music.src} preload="none" loop></audio><button id="music-toggle" class="music-toggle" aria-label={`Reproducir ${wedding.music.title}`} aria-pressed="false" data-title={wedding.music.title}><Icon name="music" size={22} /><span>Música</span></button><p id="music-status" class="music-status" role="status"></p></div>}
+{wedding.music && <div class="music-control"><audio id="wedding-music" src={wedding.music.src} preload={autoStart ? 'auto' : 'metadata'} autoplay={autoStart} loop></audio><button id="music-toggle" class="music-toggle" aria-label={`Reproducir ${wedding.music.title}`} aria-pressed="false" data-title={wedding.music.title}><Icon name="music" size={22} /><span>Activar música</span></button><p id="music-status" class="music-status" role="status"></p></div>}
 <script>import '../scripts/music';</script>

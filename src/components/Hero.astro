@@ -2,9 +2,10 @@
 import Photo from './Photo.astro';
 import { wedding } from '../data/wedding';
 import Icon from './Icon.astro';
+const { photo = wedding.hero, position } = Astro.props;
 ---
 <section class="hero" aria-labelledby="couple-names" id="inicio">
-  <Photo image={wedding.hero.image} alt={wedding.hero.alt} sizes={`max(100vw, ${100 * wedding.hero.image.width / wedding.hero.image.height}vh)`} eager class="hero-photo" />
+  <Photo image={photo.image} alt={photo.alt} sizes={`max(100vw, ${100 * photo.image.width / photo.image.height}vh)`} position={position} eager class="hero-photo" />
   <header class="hero-header">
     <a href="#inicio" class="monogram" aria-label="Johan y Marylia, inicio">J<span>&</span>M</a>
     <nav aria-label="Secciones de la invitación" class="flex items-center gap-6 md:gap-10">

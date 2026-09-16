@@ -4,6 +4,8 @@ const toggle = document.querySelector<HTMLButtonElement>('#music-toggle');
 const musicStatus = document.querySelector<HTMLElement>('#music-status');
 if (audio && toggle) {
   const sync = () => {
+    const label = toggle.querySelector('span');
+    if (label) label.textContent = audio.paused ? 'Activar música' : 'Pausar música';
     toggle.setAttribute('aria-pressed', String(!audio.paused));
     toggle.setAttribute('aria-label', `${audio.paused ? 'Reproducir' : 'Pausar'} ${toggle.dataset.title ?? 'música'}`);
   };
@@ -20,6 +22,11 @@ if (audio && toggle) {
   audio.addEventListener('pause', sync);
   audio.addEventListener('error', () => {
     if (musicStatus) musicStatus.textContent = 'La música no está disponible en este momento.';
+    sync();
+  });
+  // El navegador puede exigir un gesto del invitado para permitir audio.
+  audio.volume = 0.4;
+  if (audio.autoplay) void audio.play().then(sync).catch(() => {
     sync();
   });
 }

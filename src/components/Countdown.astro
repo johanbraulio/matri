@@ -7,7 +7,7 @@ import { wedding } from '../data/wedding';
   <div class="countdown-grid" role="timer" aria-label="Tiempo restante hasta la ceremonia" aria-live="off" hidden>
     {['Días', 'Horas', 'Minutos', 'Segundos'].map((label, index) => <div class="countdown-unit"><span class="countdown-number" data-unit={index}>00</span><span class="eyebrow">{label}</span></div>)}
   </div>
-  <p class="countdown-message">Nos encontramos el 10 de octubre de 2026 a las 13:00 h.</p>
+  <p class="countdown-message">Nos encontramos el {wedding.dateLabel.toLowerCase()} a las {wedding.events[0].time} h.</p>
   <p class="countdown-footnote">Una fecha para guardar en el corazón.</p>
 </section>
 <script>import '../scripts/countdown';</script>

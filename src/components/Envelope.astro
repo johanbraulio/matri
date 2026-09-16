@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+---
+<dialog class="envelope-welcome" open aria-labelledby="envelope-heading" aria-describedby="envelope-description">
+  <div class="envelope-layout">
+    <p class="eyebrow envelope-prelude">Una invitación hecha con amor</p>
+    <h2 id="envelope-heading" tabindex="-1" autofocus>Hay un día especial<br /><em>que queremos compartir contigo.</em></h2>
+    <button class="envelope-object" id="open-envelope" aria-label="Abrir invitación con música" aria-describedby="envelope-description">
+      <span class="envelope-letter" aria-hidden="true"><span class="eyebrow">Nos casamos</span><span class="letter-names">Johan <em>&</em> Marylia</span><span class="letter-date">10 · 10 · 2026</span></span>
+      <span class="envelope-back" aria-hidden="true"></span>
+      <span class="envelope-front" aria-hidden="true"></span>
+      <span class="envelope-flap" aria-hidden="true"></span>
+      <span class="envelope-seal" aria-hidden="true"><span>J<em>&</em>M</span></span>
+      <span class="envelope-address" aria-hidden="true"><span>Para ti, con todo nuestro cariño</span><span class="eyebrow">Johan & Marylia</span></span>
+    </button>
+    <div class="envelope-instructions">
+      <p class="open-hint" aria-hidden="true">Toca el sello para abrir <span>↗</span></p>
+      <p id="envelope-description"><Icon name="music" size={16} />La invitación se abrirá con música.</p>
+      <button class="open-silent" id="open-without-music">Abrir sin música</button>
+    </div>
+    <p class="envelope-dateline">10 DE OCTUBRE DE 2026 <span>·</span> PUNO, PERÚ</p>
+  </div>
+</dialog>
+<script>import '../scripts/envelope';</script>

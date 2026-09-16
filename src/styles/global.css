@@ -220,3 +220,5 @@ html[data-motion="on"] { scroll-behavior: smooth; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal-ready { opacity: 1; transform: none; }
 }
+
+.gallery-photo { align-self: start; }
